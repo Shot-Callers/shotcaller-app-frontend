@@ -12,7 +12,7 @@ import Footer from "./components/Footer.js"
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(mockUser[0])
+  const [currentUser, setCurrentUser] = useState(false)
   const [basketballcourts, setBasketBallCourts] = useState([mockBasketBallCourts])
   return (
     <>
