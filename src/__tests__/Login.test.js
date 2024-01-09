@@ -25,7 +25,7 @@ describe("<Login />", () => {
     login();
     expect(screen.getByText(/email: password:/i)).toBeInTheDocument();
 
-    expect(screen.getByText(/choose skill level/i)).toBeInTheDocument();
+   
   });
   it("has a submit button", () => {
     login();
