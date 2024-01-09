@@ -78,13 +78,13 @@ function App() {
   }
 
 
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user")
-    if (loggedInUser) {
-      setCurrentUser(JSON.parse(loggedInUser))
-    }
-    readCourts()
-  }, [])
+  // useEffect(() => {
+  //   const loggedInUser = localStorage.getItem("user")
+  //   if (loggedInUser) {
+  //     setCurrentUser(JSON.parse(loggedInUser))
+  //   }
+  //   readCourts()
+  // }, [])
 
   return (
     <>

@@ -11,7 +11,7 @@ const Login = ({ login }) => {
       const formData = new FormData(formRef.current)
       const data = Object.fromEntries(formData)
       const userInfo = {
-        "user":{ email: data.email, password: data.password, skillLevel: data.skillLevel }
+        "user":{ email: data.email, password: data.password }
       }
       login(userInfo)
       navigate("/")
@@ -27,13 +27,6 @@ const Login = ({ login }) => {
         <br/>
         Password: <input className='form-control' type="password" name='password' placeholder="password" />
         <br/>
-        <select className="form-control text-center">
-          <option value="">-Choose Skill Level-</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>        
-        </select>
-        <br />
         <input className='btn btn-dark w-100' type='submit' value="Login" />
         <div className='text-center'>
       Forgot Password? <a href="*">Reset</a> here.
