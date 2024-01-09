@@ -11,7 +11,7 @@ const Login = ({ login }) => {
       const formData = new FormData(formRef.current)
       const data = Object.fromEntries(formData)
       const userInfo = {
-        "user":{ email: data.email, password: data.password }
+        "user":{ email: data.email, password: data.password, skillLevel: data.skillLevel }
       }
       login(userInfo)
       navigate("/")

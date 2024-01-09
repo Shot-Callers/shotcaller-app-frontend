@@ -77,6 +77,15 @@ function App() {
       .catch((error) => console.log("log out errors: ", error))
   }
 
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user")
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser))
+    }
+    readCourts()
+  }, [])
+
   return (
     <>
       <Header currentUser={currentUser} logout={logout} />
