@@ -14,13 +14,76 @@ import Footer from "./components/Footer.js"
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [basketballcourts, setBasketBallCourts] = useState([mockBasketBallCourts])
+
+  const login = (userInfo) => {
+    fetch("http://localhost:3000/login", {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      return response.json()
+    })
+    .then((payload) => {
+      localStorage.setItem("user", JSON.stringify(payload))
+      setCurrentUser(payload)
+    })
+    .catch((error) => console.log("login errors: ", error))
+  }
+
+  const signup = (userInfo) => {
+    fetch("http://localhost:3000/signup", {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText)
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"))
+        return response.json()
+      })
+      .then((payload) => {
+        localStorage.setItem("user", JSON.stringify(payload))
+        setCurrentUser(payload)
+      })
+      .catch((error) => console.log("login errors: ", error))
+  }
+
+  const logout = (id) => {
+    fetch("http://localhost:3000/signout", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      method: "DELETE",
+    })
+      .then((payload) => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+        setCurrentUser()
+      })
+      .catch((error) => console.log("log out errors: ", error))
+  }
+
   return (
     <>
-      <Header currentUser={currentUser} />
+      <Header currentUser={currentUser} logout={logout} />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login login={login}/>} />
+        <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/courtindex" element={<CourtIndex basketballcourts={basketballcourts} />} />
         {
           currentUser && <Route path="/mycourts" element={<CourtProtectedIndex currentUser={currentUser} basketballcourts={basketballcourts} />} />

@@ -3,8 +3,10 @@ import { Nav, NavItem } from 'reactstrap'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 
-const Header = ({currentUser}) => {
-  const handleClick = (e)  => {}
+const Header = ({currentUser, logout}) => {
+  const handleClick = (e)  => {
+    logout()
+  }
   return (
     <header className='bg-secondary'>
       <Nav
