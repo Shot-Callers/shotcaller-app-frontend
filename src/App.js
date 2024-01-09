@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import mockUser from "./mockUsers.js"
-import mockBasketBallCourts from "./mockBasketBallCourts.js"
+import mockBasketBallCourts from './mockBasketballCourts.js';
 import { AboutUs, CourtEdit, CourtIndex, CourtNew, CourtProtectedIndex, CourtShow, Home, Login, NotFound, SignUp } from "./pages/Index.js"
 import Header from "./components/Header.js"
 import Footer from "./components/Footer.js"
@@ -13,7 +13,7 @@ import Footer from "./components/Footer.js"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
-  const [basketballcourts, setBasketBallCourts] = useState([mockBasketBallCourts])
+  const [basketballcourts, setBasketBallCourts] = useState(mockBasketBallCourts)
 
   const login = (userInfo) => {
     fetch("http://localhost:3000/login", {
