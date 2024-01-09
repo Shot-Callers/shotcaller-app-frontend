@@ -34,7 +34,7 @@ const Header = ({currentUser, logout}) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="text-dark" to="/new">
+              <NavLink className="text-dark" to="/courtnew">
                 Create Courts
               </NavLink>
             </NavItem>
