@@ -12,7 +12,7 @@ import Footer from "./components/Footer.js"
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(false)
+  const [currentUser, setCurrentUser] = useState(null)
   const [basketballcourts, setBasketBallCourts] = useState(mockBasketBallCourts)
 
   const login = (userInfo) => {
