@@ -17,7 +17,6 @@ const renderShow = () => {
 describe("<CourtShow/>", () => {
   it("It render without errors", () => {
     renderShow();
-    screen.logTestingPlaygroundURL()
   });
   it("Render correct attributes", () => {
     renderShow();

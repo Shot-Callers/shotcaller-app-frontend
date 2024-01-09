@@ -4,8 +4,10 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 
 const Header = ({currentUser, logout}) => {
+  const navigate = useNavigate()
   const handleClick = (e)  => {
     logout()
+    navigate("/")
   }
   return (
     <header className='bg-secondary'>
