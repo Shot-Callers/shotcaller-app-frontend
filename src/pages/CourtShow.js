@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+
 const CourtShow = ({ basketballcourts }) => {
   let { id } = useParams();
   const currentCourt = basketballcourts?.find((court) => court.id === +id);
@@ -27,6 +28,9 @@ const CourtShow = ({ basketballcourts }) => {
               </div>
               <NavLink to={`/courtindex`} className="nav-link">
                 <Button>Back to Listings</Button>
+              </NavLink>
+              <NavLink to={`/courtedit/${currentCourt.id}`}>
+                <Button>Edit Court</Button>
               </NavLink>
             </CardBody>
           </Card>

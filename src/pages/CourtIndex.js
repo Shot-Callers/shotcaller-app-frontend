@@ -34,7 +34,7 @@ const CourtIndex = ({ basketballcourts }) => {
                     <CardSubtitle>Number players:{court.number_players} </CardSubtitle>
                   </div>
                   <NavLink
-                    to={`/courtindex/${court.id}`}
+                    to={`/courtshow/${court.id}`}
                     className="nav-link"
                   >
                     <Button className="court-button">More Details</Button>
