@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-const CourtNew = ({ currentUser, handleAddCourt }) => {
+const CourtNew = ({ currentUser, createCourts }) => {
   const navigate = useNavigate();
   const [newCourt, setNewCourt] = useState({
     name: "",
@@ -19,7 +19,7 @@ const CourtNew = ({ currentUser, handleAddCourt }) => {
     setNewCourt({ ...newCourt, [e.target.name]: e.target.value });
   };
   const handleSubmit = () => {
-    handleAddCourt(newCourt);
+    createCourts(newCourt);
     navigate("/courtindex");
   };
   return (
@@ -74,17 +74,17 @@ const CourtNew = ({ currentUser, handleAddCourt }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label name="court type">Court Type</Label>
-          <select onChange={handleChange}>
+          <Label>Court Type</Label>
+          <select name="court_type" onChange={handleChange}>
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
             <option value="rubber">Rubber</option>
-          </select >
+          </select>
         </FormGroup>
         <FormGroup>
-          <Label name="number of players">Number of Players</Label>
-          <select onChange={handleChange}>
+          <Label>Number of Players</Label>
+          <select name="number_players" onChange={handleChange}>
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>

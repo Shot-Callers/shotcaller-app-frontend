@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import mockUser from "./mockUsers.js";
 import mockBasketBallCourts from "./mockBasketBallCourts.js";
 import {
@@ -20,14 +20,8 @@ import Footer from "./components/Footer.js";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [basketballcourts, setBasketBallCourts] =
-    useState(mockBasketBallCourts);
+  const [basketballcourts, setBasketBallCourts] = useState([]);
 
-  const handleAddCourt = (newCourt) => {
-    setBasketBallCourts((curr) => [...curr, newCourt]);
-  };
-  const handleEditCourt = (court, id) => {  
-  };
 
   const login = (userInfo) => {
     fetch("http://localhost:3000/login", {
@@ -91,13 +85,58 @@ function App() {
       .catch((error) => console.log("log out errors: ", error));
   };
 
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("user")
-  //   if (loggedInUser) {
-  //     setCurrentUser(JSON.parse(loggedInUser))
-  //   }
-  //   readCourts()
-  // }, [])
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser));
+    }
+    readCourts();
+  }, []);
+
+  const readCourts = () => {
+    fetch('http://localhost:3000/basketball_courts')
+    .then(res => res.json())
+    .then(data => setBasketBallCourts(data))
+    .catch(err => console.log(err))
+  }
+
+  const createCourts = (court) => {
+    fetch('http://localhost:3000/basketball_courts', {
+      body: JSON.stringify(court),
+      headers: {"Content-Type": "application/json"},
+      method: "POST"
+
+    })
+    .then(res => res.json())
+    .then(() => readCourts())
+    .catch(err => console.log(err))
+  }
+
+  const handleEditCourt = (court, id) => {
+    fetch(`http://localhost:3000/basketball_courts/${id}`, {
+      body: JSON.stringify(court),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then(() => readCourts())
+      .catch((errors) => console.log(errors));
+  };
+
+  const deleteCourt = (id) => {
+    fetch(`http://localhost:3000/basketball_courts/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(() => readCourts())
+    .catch(err => console.log(err))
+  }
+
 
   return (
     <>
@@ -123,15 +162,26 @@ function App() {
         )}
         <Route
           path="/courtshow/:id"
-          element={<CourtShow basketballcourts={basketballcourts} />}
+          element={<CourtShow basketballcourts={basketballcourts} deleteCourt={deleteCourt} />}
         />
         <Route
           path="/courtnew"
-          element={<CourtNew currentUser={currentUser} handleAddCourt={handleAddCourt}/>}
+          element={
+            <CourtNew
+              currentUser={currentUser}
+              createCourts={createCourts}
+            />
+          }
         />
         <Route
           path="/courtedit/:id"
-          element={<CourtEdit basketballcourts={basketballcourts} currentUser={currentUser} handleEditCourt={handleEditCourt} />}
+          element={
+            <CourtEdit
+              basketballcourts={basketballcourts}
+              currentUser={currentUser}
+              handleEditCourt={handleEditCourt}
+            />
+          }
         />
         <Route path="*" element={<NotFound />} />
         <Route path="/aboutus" element={<AboutUs />} />

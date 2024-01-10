@@ -1,10 +1,18 @@
 import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
-const CourtShow = ({ basketballcourts }) => {
+const CourtShow = ({ basketballcourts, deleteCourt }) => {
   let { id } = useParams();
   const currentCourt = basketballcourts?.find((court) => court.id === +id);
+
+  const navigate = useNavigate()
+
+  const handleSubmit = () => {
+    deleteCourt(currentCourt.id)
+    navigate("/courtindex")
+  } 
   return (
     <>
       <div className="w-100 m-auto d-flex justify-content-center align-items-center my-5">
@@ -30,7 +38,10 @@ const CourtShow = ({ basketballcourts }) => {
                 <Button>Back to Listings</Button>
               </NavLink>
               <NavLink to={`/courtedit/${currentCourt.id}`}>
-                <Button>Edit Court</Button>
+                <Button className="bg-dark">Edit Court</Button>
+              </NavLink>
+              <NavLink onClick={handleSubmit}>
+                <Button className="bg-danger">Delete Court</Button>
               </NavLink>
             </CardBody>
           </Card>
