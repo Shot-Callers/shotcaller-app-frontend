@@ -39,7 +39,7 @@ const Header = ({currentUser, logout}) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink onClick={handleClick} className="text-dark" to="#">
+              <NavLink onClick={handleClick} className="text-dark" to="/">
                 Log Out
               </NavLink>
             </NavItem>

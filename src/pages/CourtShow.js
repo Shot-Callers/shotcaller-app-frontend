@@ -26,10 +26,10 @@ const CourtShow = ({ basketballcourts, deleteCourt }) => {
                   </CardTitle>
                   <CardSubtitle>
                     {currentCourt?.street} {currentCourt?.city}
-                    {currentCourt?.state} {currentCourt.zip}
+                    {currentCourt?.state} {currentCourt?.zip}
                   </CardSubtitle>
                   <CardSubtitle>
-                    Court Type: {currentCourt.type}
+                    Court Type: {currentCourt?.type}
                     Number of players: {currentCourt?.number_players}
                   </CardSubtitle>
                 </div>
@@ -40,9 +40,7 @@ const CourtShow = ({ basketballcourts, deleteCourt }) => {
               <NavLink to={`/courtedit/${currentCourt.id}`}>
                 <Button className="bg-dark">Edit Court</Button>
               </NavLink>
-              <NavLink onClick={handleSubmit}>
-                <Button className="bg-danger">Delete Court</Button>
-              </NavLink>
+                <Button className="bg-danger" onClick={handleSubmit}>Delete Court</Button>
             </CardBody>
           </Card>
         )}
