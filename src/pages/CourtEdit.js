@@ -6,7 +6,9 @@ import { useNavigate, useParams } from "react-router-dom";
 const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
   const { id } = useParams();
   const currentCourt = basketballcourts?.find((court) => court.id === +id);
+  
   const navigate = useNavigate();
+
   const [editCourt, setEditCourt] = useState({
     name: currentCourt.name,
     street: currentCourt.street,
@@ -20,12 +22,13 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
   const handleChange = (e) => {
     setEditCourt({ ...editCourt, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = () => {
-    handleEditCourt(editCourt, currentCourt.id);
-    console.log(basketballcourts)
-    console.log(currentCourt)
+    handleEditCourt(editCourt, currentCourt?.id);
     navigate("/courtindex");
   };
+    
+ 
   return (
     <div>
       <h1 className="text-center my-5" style={{ textShadow: "0 5px 5px grey" }}>
