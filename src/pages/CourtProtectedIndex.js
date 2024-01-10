@@ -26,8 +26,6 @@ const CourtProtectedIndex = ({ basketballcourts, currentUser }) => {
                 <NavLink to={`/courtshow/${court.id}`} className="nav-link">
                   <Button>More Details</Button>
                 </NavLink>
-                <button className="mx-2 my-2 btn btn-dark">Edit</button>
-                <button className="mx-2 my-2 btn btn-danger">Delete</button>
               </CardBody>
             </Card>
           );

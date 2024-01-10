@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
-const CourtEdit = ({ basketballcourts, handleEditCourt }) => {
+const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
   const { id } = useParams();
   const currentCourt = basketballcourts?.find((court) => court.id === +id);
   const navigate = useNavigate();
@@ -17,13 +15,15 @@ const CourtEdit = ({ basketballcourts, handleEditCourt }) => {
     zip: currentCourt.zip,
     court_type: currentCourt.court_type,
     number_players: currentCourt.number_players,
-    user_id: currentCourt.user_id,
+    user_id: currentUser?.id,
   });
   const handleChange = (e) => {
     setEditCourt({ ...editCourt, [e.target.name]: e.target.value });
   };
   const handleSubmit = () => {
-    handleEditCourt(editCourt);
+    handleEditCourt(editCourt, currentCourt.id);
+    console.log(basketballcourts)
+    console.log(currentCourt)
     navigate("/courtindex");
   };
   return (
@@ -79,7 +79,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt }) => {
         </FormGroup>
         <FormGroup>
           <Label name="court type">Court Type</Label>
-          <select>
+          <select onChange={handleChange}>
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
@@ -88,7 +88,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt }) => {
         </FormGroup>
         <FormGroup>
           <Label name="number of players">Number of Players</Label>
-          <select>
+          <select onChange={handleChange}>
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>

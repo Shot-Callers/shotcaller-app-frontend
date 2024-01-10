@@ -1,19 +1,33 @@
-
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import mockUser from "./mockUsers.js"
-import mockBasketBallCourts from './mockBasketballCourts.js';
-import { AboutUs, CourtEdit, CourtIndex, CourtNew, CourtProtectedIndex, CourtShow, Home, Login, NotFound, SignUp } from "./pages/Index.js"
-import Header from "./components/Header.js"
-import Footer from "./components/Footer.js"
-
-
-
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import mockUser from "./mockUsers.js";
+import mockBasketBallCourts from "./mockBasketBallCourts.js";
+import {
+  AboutUs,
+  CourtEdit,
+  CourtIndex,
+  CourtNew,
+  CourtProtectedIndex,
+  CourtShow,
+  Home,
+  Login,
+  NotFound,
+  SignUp,
+} from "./pages/Index.js";
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
-  const [basketballcourts, setBasketBallCourts] = useState(mockBasketBallCourts)
+  const [currentUser, setCurrentUser] = useState(null);
+  const [basketballcourts, setBasketBallCourts] =
+    useState(mockBasketBallCourts);
+
+  const handleAddCourt = (newCourt) => {
+    setBasketBallCourts((curr) => [...curr, newCourt]);
+  };
+  const handleEditCourt = (court, id) => {  
+  };
 
   const login = (userInfo) => {
     fetch("http://localhost:3000/login", {
@@ -24,19 +38,19 @@ function App() {
       },
       method: "POST",
     })
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(response.statusText)
-      }
-      localStorage.setItem("token", response.headers.get("Authorization"))
-      return response.json()
-    })
-    .then((payload) => {
-      localStorage.setItem("user", JSON.stringify(payload))
-      setCurrentUser(payload)
-    })
-    .catch((error) => console.log("login errors: ", error))
-  }
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
+      })
+      .then((payload) => {
+        localStorage.setItem("user", JSON.stringify(payload));
+        setCurrentUser(payload);
+      })
+      .catch((error) => console.log("login errors: ", error));
+  };
 
   const signup = (userInfo) => {
     fetch("http://localhost:3000/signup", {
@@ -49,17 +63,17 @@ function App() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw Error(response.statusText)
+          throw Error(response.statusText);
         }
-        localStorage.setItem("token", response.headers.get("Authorization"))
-        return response.json()
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
       })
       .then((payload) => {
-        localStorage.setItem("user", JSON.stringify(payload))
-        setCurrentUser(payload)
+        localStorage.setItem("user", JSON.stringify(payload));
+        setCurrentUser(payload);
       })
-      .catch((error) => console.log("login errors: ", error))
-  }
+      .catch((error) => console.log("login errors: ", error));
+  };
 
   const logout = (id) => {
     fetch("http://localhost:3000/signout", {
@@ -70,13 +84,12 @@ function App() {
       method: "DELETE",
     })
       .then((payload) => {
-        localStorage.removeItem("token")
-        localStorage.removeItem("user")
-        setCurrentUser()
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setCurrentUser();
       })
-      .catch((error) => console.log("log out errors: ", error))
-  }
-
+      .catch((error) => console.log("log out errors: ", error));
+  };
 
   // useEffect(() => {
   //   const loggedInUser = localStorage.getItem("user")
@@ -91,21 +104,41 @@ function App() {
       <Header currentUser={currentUser} logout={logout} />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/login" element={<Login login={login}/>} />
+        <Route path="/login" element={<Login login={login} />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
-        <Route path="/courtindex" element={<CourtIndex basketballcourts={basketballcourts} />} />
-        {
-          currentUser && <Route path="/mycourts" element={<CourtProtectedIndex currentUser={currentUser} basketballcourts={basketballcourts} />} />
-        }
-        <Route path="/courtshow/:id" element={<CourtShow basketballcourts={basketballcourts} />} />
-        <Route path="/courtnew" element={<CourtNew  currentUser={currentUser} />} />
-        <Route path="/courtedit/:id" element={<CourtEdit basketballcourts={basketballcourts}  />} />
+        <Route
+          path="/courtindex"
+          element={<CourtIndex basketballcourts={basketballcourts} />}
+        />
+        {currentUser && (
+          <Route
+            path="/mycourts"
+            element={
+              <CourtProtectedIndex
+                currentUser={currentUser}
+                basketballcourts={basketballcourts}
+              />
+            }
+          />
+        )}
+        <Route
+          path="/courtshow/:id"
+          element={<CourtShow basketballcourts={basketballcourts} />}
+        />
+        <Route
+          path="/courtnew"
+          element={<CourtNew currentUser={currentUser} handleAddCourt={handleAddCourt}/>}
+        />
+        <Route
+          path="/courtedit/:id"
+          element={<CourtEdit basketballcourts={basketballcourts} currentUser={currentUser} handleEditCourt={handleEditCourt} />}
+        />
         <Route path="*" element={<NotFound />} />
-        <Route path='/aboutus' element={<AboutUs />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
       <Footer />
     </>
-  )
+  );
 }
 
 export default App;

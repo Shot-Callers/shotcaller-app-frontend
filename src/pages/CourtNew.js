@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
-const CourtNew = ({ handleAddCourt }) => {
+
+const CourtNew = ({ currentUser, handleAddCourt }) => {
   const navigate = useNavigate();
   const [newCourt, setNewCourt] = useState({
     name: "",
@@ -12,13 +13,14 @@ const CourtNew = ({ handleAddCourt }) => {
     zip: "",
     court_type: "",
     number_players: "",
+    user_id: currentUser?.id,
   });
   const handleChange = (e) => {
     setNewCourt({ ...newCourt, [e.target.name]: e.target.value });
   };
   const handleSubmit = () => {
     handleAddCourt(newCourt);
-    navigate("/mycourts");
+    navigate("/courtindex");
   };
   return (
     <div>
@@ -73,16 +75,16 @@ const CourtNew = ({ handleAddCourt }) => {
         </FormGroup>
         <FormGroup>
           <Label name="court type">Court Type</Label>
-          <select>
+          <select onChange={handleChange}>
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
             <option value="rubber">Rubber</option>
-          </select>
+          </select >
         </FormGroup>
         <FormGroup>
           <Label name="number of players">Number of Players</Label>
-          <select>
+          <select onChange={handleChange}>
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>
