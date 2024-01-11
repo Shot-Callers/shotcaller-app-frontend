@@ -1,8 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import mockUser from "./mockUsers.js";
-import mockBasketBallCourts from "./mockBasketBallCourts.js";
+// import mockUser from "./mockUsers.js";
+// import mockBasketBallCourts from "./mockBasketballCourts.js";
 import {
   AboutUs,
   CourtEdit,
@@ -21,7 +21,6 @@ import Footer from "./components/Footer.js";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [basketballcourts, setBasketBallCourts] = useState([]);
-
 
   const login = (userInfo) => {
     fetch("http://localhost:3000/login", {
@@ -94,23 +93,22 @@ function App() {
   }, []);
 
   const readCourts = () => {
-    fetch('http://localhost:3000/basketball_courts')
-    .then(res => res.json())
-    .then(data => setBasketBallCourts(data))
-    .catch(err => console.log(err))
-  }
+    fetch("http://localhost:3000/basketball_courts")
+      .then((res) => res.json())
+      .then((data) => setBasketBallCourts(data))
+      .catch((err) => console.log(err));
+  };
 
   const createCourts = (court) => {
-    fetch('http://localhost:3000/basketball_courts', {
+    fetch("http://localhost:3000/basketball_courts", {
       body: JSON.stringify(court),
-      headers: {"Content-Type": "application/json"},
-      method: "POST"
-
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
     })
-    .then(res => res.json())
-    .then(() => readCourts())
-    .catch(err => console.log(err))
-  }
+      .then((res) => res.json())
+      .then(() => readCourts())
+      .catch((err) => console.log(err));
+  };
 
   const handleEditCourt = (court, id) => {
     fetch(`http://localhost:3000/basketball_courts/${id}`, {
@@ -128,15 +126,14 @@ function App() {
   const deleteCourt = (id) => {
     fetch(`http://localhost:3000/basketball_courts/${id}`, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "DELETE"
+      method: "DELETE",
     })
-    .then(res => res.json())
-    .then(() => readCourts())
-    .catch(err => console.log(err))
-  }
-
+      .then((res) => res.json())
+      .then(() => readCourts())
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -162,15 +159,17 @@ function App() {
         )}
         <Route
           path="/courtshow/:id"
-          element={<CourtShow basketballcourts={basketballcourts} deleteCourt={deleteCourt} />}
+          element={
+            <CourtShow
+              basketballcourts={basketballcourts}
+              deleteCourt={deleteCourt}
+            />
+          }
         />
         <Route
           path="/courtnew"
           element={
-            <CourtNew
-              currentUser={currentUser}
-              createCourts={createCourts}
-            />
+            <CourtNew currentUser={currentUser} createCourts={createCourts} />
           }
         />
         <Route
