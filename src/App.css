@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.intro {
+  background-color: #ffffff;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.intro .overlap-group-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  width: 1920px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.intro .overlap-group {
+  height: 1080px;
+  position: relative;
+}
+
+.bballimg {
+  height: 400px;
+  width: 400px;
+  left: 650px;
+  object-fit: cover;
+  position: absolute;
+  top: 200px;
+  transform: rotate(41.61deg);
+}
+
+
+.intro .find-a-basketball {
+  color: transparent;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 96px;
+  font-weight: 600;
+  left: 65px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 178px;
+  width: 729px;
+}
+
+.intro .text-wrapper {
+  color:#eba059 ;
+}
+
+.intro .span {
+  color: #41245c;
+  position: relative;
+  z-index: 1;
+}
+
+
+.intro .shot-caller-app {
+  color: #eba059;
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  height: 45px;
+  left: 1500px;
+  letter-spacing: 0.75px;
+  line-height: 22.5px;
+  position: absolute;
+  text-align: center;
+  top: 1001px;
+  width: 335px;
 }

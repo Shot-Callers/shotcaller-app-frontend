@@ -10,7 +10,7 @@ const Header = ({currentUser, logout}) => {
     navigate("/")
   }
   return (
-    <header className='bg-secondary'>
+    <header style={{backgroundColor: "#F57417"}}>
       <Nav
         role="navigation"
         aria-label="navigation"
