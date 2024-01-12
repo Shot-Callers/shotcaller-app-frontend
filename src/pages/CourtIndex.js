@@ -27,7 +27,7 @@ const CourtIndex = ({ basketballcourts }) => {
     <>
       <div className="courts-body">
         <h3 className="text-center my-5">View Courts:</h3>
-        <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center gap-4 p-3">
+        <div className="d-flex flex-column flex-md-row flex-wrap justify-content-evenly align-items-center gap-4 p-3">
           {basketballcourts?.map((court, index) => {
             return (
               <Card
