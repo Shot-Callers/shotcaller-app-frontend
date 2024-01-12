@@ -21,9 +21,12 @@ import Footer from "./components/Footer.js";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [basketballcourts, setBasketBallCourts] = useState([]);
+  const url = "https://shotcaller-backend.onrender.com";
+
+  // const url = "http://localhost:3000";
 
   const login = (userInfo) => {
-    fetch("http://localhost:3000/login", {
+    fetch(`${url}/login`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +49,7 @@ function App() {
   };
 
   const signup = (userInfo) => {
-    fetch("http://localhost:3000/signup", {
+    fetch(`${url}/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +72,7 @@ function App() {
   };
 
   const logout = (id) => {
-    fetch("http://localhost:3000/signout", {
+    fetch(`${url}/signout`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token"),
@@ -93,14 +96,14 @@ function App() {
   }, []);
 
   const readCourts = () => {
-    fetch("http://localhost:3000/basketball_courts")
+    fetch(`${url}/basketball_courts`)
       .then((res) => res.json())
       .then((data) => setBasketBallCourts(data))
       .catch((err) => console.log(err));
   };
 
   const createCourts = (court) => {
-    fetch("http://localhost:3000/basketball_courts", {
+    fetch(`${url}/basketball_courts`, {
       body: JSON.stringify(court),
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -111,7 +114,7 @@ function App() {
   };
 
   const handleEditCourt = (court, id) => {
-    fetch(`http://localhost:3000/basketball_courts/${id}`, {
+    fetch(`${url}/basketball_courts/${id}`, {
       body: JSON.stringify(court),
       headers: {
         "Content-Type": "application/json",
@@ -124,7 +127,7 @@ function App() {
   };
 
   const deleteCourt = (id) => {
-    fetch(`http://localhost:3000/basketball_courts/${id}`, {
+    fetch(`${url}/basketball_courts/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
