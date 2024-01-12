@@ -26,6 +26,11 @@ const Header = ({currentUser, logout}) => {
             View Courts
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink  to="/aboutus">
+            About Us
+          </NavLink>
+        </NavItem>
         {currentUser && (
           <>
             <NavItem>
