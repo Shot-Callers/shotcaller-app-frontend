@@ -26,7 +26,7 @@ const SignUp = ({ signup }) => {
         ref={formRef}
         onSubmit={handleSubmit}
       >
-        Email:{" "}
+        <b>Email:</b>{" "}
         <input
           className="form-control"
           type="email"
@@ -34,7 +34,7 @@ const SignUp = ({ signup }) => {
           placeholder="email"
         />
         <br />
-        Password:{" "}
+        <b>Password:</b>{" "}
         <input
           className="form-control"
           type="password"
@@ -49,7 +49,7 @@ const SignUp = ({ signup }) => {
           <option value="3">3</option>        
         </select>
         <br />
-        <input className="btn btn-dark w-100" type="submit" value="Sign Up" />
+        <input className='btn w-100' style={{ color:"white", backgroundColor:"#EBA059" }} type="submit" value="Sign Up" />
         <div className="text-center">
           Forgot Password? <a href="*">Reset</a> here.
         </div>

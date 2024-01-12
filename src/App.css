@@ -15,16 +15,39 @@
 .intro .overlap-group {
   height: 1080px;
   position: relative;
+  overflow: hidden;
 }
 
 .bballimg {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
+  left: 850px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  transform: rotate(41.61deg);
+  border-radius: 25px;
+}
+
+.phone1 {
+  height: 700px;
+  width: 700px;
   left: 650px;
   object-fit: cover;
   position: absolute;
-  top: 200px;
-  transform: rotate(41.61deg);
+  top: 400px;
+  transform: rotate(-45deg);
+}
+
+.phone2 {
+  max-height: 400;
+  width: 250px;
+  left: 1250px;
+  object-fit: cover;
+  position: absolute;
+  top: -30px;
+  transform: rotate(-45deg);
+  border-radius: 20px;
 }
 
 
@@ -37,7 +60,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 178px;
+  top: 100px;
   width: 729px;
 }
 
@@ -66,3 +89,43 @@
   top: 1001px;
   width: 335px;
 }
+
+.footer {
+  background-color: #8B3C76;
+  color: #EBA059;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+header a:before {
+  margin-left: auto;
+}
+
+header a:after, header a:before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: white;
+  display: block;
+  transition: 0.5s;
+}
+
+header a:hover::after, header a:hover::before {
+  width: 100%;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+}
+ body {
+  overflow: hidden;
+ }

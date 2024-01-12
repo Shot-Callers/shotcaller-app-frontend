@@ -29,6 +29,8 @@ To get ShotCallers up and running, follow these steps:
 
 ## Live link: 
 
+`https://shotcaller.onrender.com`
+
 ## Dependencies:
 ShotCallers relies on the following main outside resources:
 

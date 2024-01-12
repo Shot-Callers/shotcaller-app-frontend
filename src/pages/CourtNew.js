@@ -23,13 +23,13 @@ const CourtNew = ({ currentUser, createCourts }) => {
     navigate("/courtindex");
   };
   return (
-    <div>
-      <h1 className="text-center my-5" style={{ textShadow: "0 5px 5px grey" }}>
+    <div style={{height: "10rem"}} className="pb-5">
+      <h1 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
         Add New Court
       </h1>
-      <Form className="w-50 m-auto p-3 shadow-lg rounded my-5 pt-5 pb-3">
+      <Form className="w-50 m-auto p-3 shadow-lg rounded pt-5 pb-3">
         <FormGroup>
-          <Label for="name">Name</Label>
+          <Label for="name"><b>Name</b></Label>
           <Input
             name="name"
             placeholder="Name"
@@ -38,7 +38,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="address">Street</Label>
+          <Label for="address"><b>Street</b></Label>
           <Input
             name="address"
             placeholder="Street"
@@ -47,7 +47,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="city">City</Label>
+          <Label for="city"><b>City</b></Label>
           <Input
             name="city"
             placeholder="City"
@@ -56,7 +56,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="state">State</Label>
+          <Label for="state"><b>State</b></Label>
           <Input
             name="state"
             placeholder="State"
@@ -65,7 +65,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="zip">Zip Code</Label>
+          <Label for="zip"><b>Zip Code</b></Label>
           <Input
             name="zip"
             placeholder="zip"
@@ -74,7 +74,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label>Court Type</Label>
+          <Label><b>Court Type</b></Label>
           <select name="court_type" onChange={handleChange}>
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
@@ -83,7 +83,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
           </select>
         </FormGroup>
         <FormGroup>
-          <Label>Number of Players</Label>
+          <Label><b>Number of Players</b></Label>
           <select name="number_players" onChange={handleChange}>
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
@@ -93,7 +93,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
             ))}
           </select>
         </FormGroup>
-        <Button onClick={handleSubmit} className="w-100">
+        <Button onClick={handleSubmit} className="w-100" style={{ color:"white", backgroundColor:"#EBA059" }}>
           Submit
         </Button>
       </Form>

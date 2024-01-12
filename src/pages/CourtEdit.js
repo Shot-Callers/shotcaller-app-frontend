@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
   const { id } = useParams();
   const currentCourt = basketballcourts?.find((court) => court.id === +id);
-  
+
   const navigate = useNavigate();
 
   const [editCourt, setEditCourt] = useState({
@@ -31,10 +31,10 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
  
   return (
     <div>
-      <h1 className="text-center my-5" style={{ textShadow: "0 5px 5px grey" }}>
+      <h1 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
         Edit Court
       </h1>
-      <Form className="w-50 m-auto p-3 shadow-lg rounded my-5 pt-5 pb-3">
+      <Form className="w-50 m-auto p-3 shadow-lg rounded pt-5 pb-3">
         <FormGroup>
           <Label for="name">Name</Label>
           <Input
@@ -100,7 +100,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
             ))}
           </select>
         </FormGroup>
-        <Button onClick={handleSubmit} className="w-100">
+        <Button onClick={handleSubmit} className="w-100" style={{ color:"white", backgroundColor:"#EBA059" }}>
           Submit
         </Button>
       </Form>

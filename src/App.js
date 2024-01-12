@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import mockUser from "./mockUsers.js";
-import mockBasketBallCourts from "./mockBasketBallCourts.js";
+import mockBasketBallCourts from "./mockBasketballCourts.js";
 import {
   AboutUs,
   CourtEdit,
@@ -21,7 +21,6 @@ import Footer from "./components/Footer.js";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [basketballcourts, setBasketBallCourts] = useState([]);
-
 
   const login = (userInfo) => {
     fetch("http://localhost:3000/login", {
@@ -147,7 +146,7 @@ function App() {
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route
           path="/courtindex"
-          element={<CourtIndex basketballcourts={basketballcourts} />}
+          element={<CourtIndex basketballcourts={basketballcourts}/>}
         />
         {currentUser && (
           <Route
@@ -162,7 +161,7 @@ function App() {
         )}
         <Route
           path="/courtshow/:id"
-          element={<CourtShow basketballcourts={basketballcourts} deleteCourt={deleteCourt} />}
+          element={<CourtShow basketballcourts={basketballcourts} deleteCourt={deleteCourt} currentUser={currentUser}/>}
         />
         <Route
           path="/courtnew"
