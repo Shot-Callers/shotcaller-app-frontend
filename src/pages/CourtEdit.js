@@ -10,13 +10,13 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
   const navigate = useNavigate();
 
   const [editCourt, setEditCourt] = useState({
-    name: currentCourt.name,
-    street: currentCourt.street,
-    city: currentCourt.city,
-    state: currentCourt.state,
-    zip: currentCourt.zip,
-    court_type: currentCourt.court_type,
-    number_players: currentCourt.number_players,
+    name: currentCourt?.name,
+    address: currentCourt?.address,
+    city: currentCourt?.city,
+    state: currentCourt?.state,
+    zip: currentCourt?.zip,
+    court_type: currentCourt?.court_type,
+    number_players: currentCourt?.number_players,
     user_id: currentUser?.id,
   });
   const handleChange = (e) => {
@@ -31,15 +31,15 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
  
   return (
     <div>
-      <h1 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
+      <h3 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
         Edit Court
-      </h1>
-      <Form className="w-50 m-auto p-3 shadow-lg rounded pt-5 pb-3">
+      </h3>
+      <Form className="w-50 m-auto p-3 shadow-lg rounded pt-1">
         <FormGroup>
           <Label for="name">Name</Label>
           <Input
             name="name"
-            placeholder="Name"
+            value={editCourt?.name}
             type="text"
             onChange={handleChange}
           />
@@ -48,7 +48,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
           <Label for="address">Street</Label>
           <Input
             name="address"
-            placeholder="Street"
+            value={editCourt?.address}
             type="text"
             onChange={handleChange}
           />
@@ -57,7 +57,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
           <Label for="city">City</Label>
           <Input
             name="city"
-            placeholder="City"
+            value={editCourt?.city}
             type="text"
             onChange={handleChange}
           />
@@ -66,7 +66,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
           <Label for="state">State</Label>
           <Input
             name="state"
-            placeholder="State"
+            value={editCourt?.state}
             type="text"
             onChange={handleChange}
           />
@@ -75,14 +75,14 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
           <Label for="zip">Zip Code</Label>
           <Input
             name="zip"
-            placeholder="zip"
+            value={editCourt?.zip}
             type="number"
             onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
           <Label name="court type">Court Type</Label>
-          <select onChange={handleChange}>
+          <select onChange={handleChange} className="form-control text-center">
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
@@ -91,7 +91,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
         </FormGroup>
         <FormGroup>
           <Label name="number of players">Number of Players</Label>
-          <select onChange={handleChange}>
+          <select onChange={handleChange} className="form-control text-center">
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>

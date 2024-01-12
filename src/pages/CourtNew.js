@@ -23,11 +23,11 @@ const CourtNew = ({ currentUser, createCourts }) => {
     navigate("/courtindex");
   };
   return (
-    <div style={{height: "10rem"}} className="pb-5">
-      <h1 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
+    <div className="pb-5">
+      <h3 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
         Add New Court
-      </h1>
-      <Form className="w-50 m-auto p-3 shadow-lg rounded pt-5 pb-3">
+      </h3>
+      <Form className="w-50 m-auto p-3 shadow-lg rounded pt-1 pb-3">
         <FormGroup>
           <Label for="name"><b>Name</b></Label>
           <Input
@@ -75,7 +75,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
         </FormGroup>
         <FormGroup>
           <Label><b>Court Type</b></Label>
-          <select name="court_type" onChange={handleChange}>
+          <select name="court_type" onChange={handleChange} className="form-control text-center">
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
@@ -84,7 +84,7 @@ const CourtNew = ({ currentUser, createCourts }) => {
         </FormGroup>
         <FormGroup>
           <Label><b>Number of Players</b></Label>
-          <select name="number_players" onChange={handleChange}>
+          <select name="number_players" onChange={handleChange} className="form-control text-center">
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>
