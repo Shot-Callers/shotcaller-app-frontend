@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.intro {
+  background-color: #ffffff;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+}
+
+.intro .overlap-group-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  width: 1920px;
+}
+
+.intro .overlap-group {
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bballimg {
+  height: 500px;
+  width: 500px;
+  left: 850px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  transform: rotate(41.61deg);
+  border-radius: 25px;
+}
+
+.phone1 {
+  height: 700px;
+  width: 700px;
+  left: 650px;
+  object-fit: cover;
+  position: absolute;
+  top: 400px;
+  transform: rotate(-45deg);
+}
+
+.phone2 {
+  max-height: 400;
+  width: 250px;
+  left: 1250px;
+  object-fit: cover;
+  position: absolute;
+  top: -30px;
+  transform: rotate(-45deg);
+  border-radius: 20px;
+}
+
+
+.intro .find-a-basketball {
+  color: transparent;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 96px;
+  font-weight: 600;
+  left: 65px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 100px;
+  width: 729px;
+}
+
+.intro .text-wrapper {
+  color:#eba059 ;
+}
+
+.intro .span {
+  color: #41245c;
+  position: relative;
+  z-index: 1;
+}
+
+
+.intro .shot-caller-app {
+  color: #eba059;
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  height: 45px;
+  left: 1500px;
+  letter-spacing: 0.75px;
+  line-height: 22.5px;
+  position: absolute;
+  text-align: center;
+  top: 1001px;
+  width: 335px;
+}
+
+.footer {
+  background-color: #8B3C76;
+  color: #EBA059;
+}
+
+header a {
   color: white;
+  text-decoration: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+header a:before {
+  margin-left: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header a:after, header a:before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: white;
+  display: block;
+  transition: 0.5s;
 }
+
+header a:hover::after, header a:hover::before {
+  width: 100%;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+}
+ body {
+  overflow: hidden;
+ }

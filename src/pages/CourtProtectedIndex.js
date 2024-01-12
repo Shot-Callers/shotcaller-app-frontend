@@ -6,7 +6,7 @@ const CourtProtectedIndex = ({ basketballcourts, currentUser }) => {
   );
   return (
     <div>
-      <h3 className="text-center my-5">My Courts:</h3>
+      <h3 className="text-center my-5"><b>My Courts:</b></h3>
       <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center gap-4">
         {myCourts.map((court, index) => {
           return (
@@ -24,7 +24,7 @@ const CourtProtectedIndex = ({ basketballcourts, currentUser }) => {
                     <CardSubtitle>Number players:{court.number_players} </CardSubtitle>
                   </div>
                 <NavLink to={`/courtshow/${court.id}`} className="nav-link">
-                  <Button>More Details</Button>
+                  <Button style={{ color:"white", backgroundColor:"#EBA059" }}>More Details</Button>
                 </NavLink>
               </CardBody>
             </Card>

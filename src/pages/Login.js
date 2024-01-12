@@ -23,11 +23,11 @@ const Login = ({ login }) => {
         Login
       </h1>
       <form className="w-50 m-auto p-3 shadow-lg rounded my-5 pt-5 pb-3" ref={formRef} onSubmit={handleSubmit}>
-        Email: <input className='form-control' type="email" name='email' placeholder="email" />
+        <b>Email:</b> <input className='form-control' type="email" name='email' placeholder="email" />
         <br/>
-        Password: <input className='form-control' type="password" name='password' placeholder="password" />
+        <b>Password:</b> <input className='form-control' type="password" name='password' placeholder="password" />
         <br/>
-        <input className='btn btn-dark w-100' type='submit' value="Login" />
+        <input className='btn w-100' style={{ color:"white", backgroundColor:"#EBA059" }} type='submit' value="Login" />
         <div className='text-center'>
       Forgot Password? <a href="*">Reset</a> here.
     </div>

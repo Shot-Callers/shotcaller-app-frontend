@@ -2,20 +2,20 @@ import React from 'react'
 
 const AboutUs = () => {
   return (
-    <div>
-      <h3>Team Shot Callers</h3>
-      <h4>
+    <div className='container'>
+      <h3 className='text-center my-3' style={{ color: "#41245C", fontSize: "50px" }}><b>Team Shot Callers</b></h3>
+      <h4 className='text-center'>
         Greetings from Team Shot Callers, a vibrant group representing the Learn
-        Academy Golf cohort 2024:
+        Academy Golf 2023 cohort:
       </h4>
-      <h5>Meet our Team:</h5>
-      <ul className="list-unstyled">
-        <li>Michael Reyes</li>
-        <li>Jeffrey Guzman</li>
-        <li>Eric McKee</li>
-        <li>Franz Marte</li>
+      <h5 className='text-center'>Meet the Team:</h5>
+      <ul className="list-unstyled text-center">
+        <li><b>Michael Reyes</b></li>
+        <li><b>Jeffrey Guzman</b></li>
+        <li><b>Eric McKee</b></li>
+        <li><b>Franz Marte</b></li>
       </ul>
-      <p>
+      <p className='fs-4 mx-auto' style={{ color: "#41245C"}}>
         Ever dreamt of effortlessly discovering nearby basketball games in
         real-time or, on the flip side, finding empty parks for some solo
         practice? Enter ShotCallers, our brainchild aiming to redefine your

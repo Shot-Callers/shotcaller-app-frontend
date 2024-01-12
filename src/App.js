@@ -147,7 +147,7 @@ function App() {
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route
           path="/courtindex"
-          element={<CourtIndex basketballcourts={basketballcourts} />}
+          element={<CourtIndex basketballcourts={basketballcourts}/>}
         />
         {currentUser && (
           <Route
@@ -162,12 +162,8 @@ function App() {
         )}
         <Route
           path="/courtshow/:id"
-          element={
-            <CourtShow
-              basketballcourts={basketballcourts}
-              deleteCourt={deleteCourt}
-            />
-          }
+
+          element={<CourtShow basketballcourts={basketballcourts} deleteCourt={deleteCourt} currentUser={currentUser}/>}
         />
         <Route
           path="/courtnew"

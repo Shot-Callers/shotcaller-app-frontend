@@ -10,36 +10,36 @@ const Header = ({currentUser, logout}) => {
     navigate("/")
   }
   return (
-    <header className='bg-secondary'>
+    <header style={{backgroundColor: "#F57417"}}>
       <Nav
         role="navigation"
         aria-label="navigation"
         className="d-flex justify-content-around align-items-center gap-5 w-100 p-3"
       >
         <NavItem>
-          <NavLink className="text-dark" to="/">
+          <NavLink  to="/">
             Home
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="text-dark" to="/courtindex">
+          <NavLink  to="/courtindex">
             View Courts
           </NavLink>
         </NavItem>
         {currentUser && (
           <>
             <NavItem>
-              <NavLink className="text-dark" to="/mycourts">
+              <NavLink to="/mycourts">
                 My Courts
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="text-dark" to="/courtnew">
+              <NavLink to="/courtnew">
                 Create Courts
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink onClick={handleClick} className="text-dark" to="/">
+              <NavLink onClick={handleClick} to="/">
                 Log Out
               </NavLink>
             </NavItem>
@@ -48,12 +48,12 @@ const Header = ({currentUser, logout}) => {
         {!currentUser && (
           <>
             <NavItem>
-              <NavLink className="text-dark" to="/signup">
+              <NavLink to="/signup">
                 Sign Up
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="text-dark" to="/login">
+              <NavLink to="/login">
                 Log In
               </NavLink>
             </NavItem>
