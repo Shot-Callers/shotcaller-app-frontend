@@ -21,9 +21,9 @@ import Footer from "./components/Footer.js";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [basketballcourts, setBasketBallCourts] = useState([]);
-  const url = "https://shotcaller-backend.onrender.com";
+  // const url = "https://shotcaller-backend.onrender.com";
 
-  // const url = "http://localhost:3000";
+  const url = "http://localhost:3000";
 
   const login = (userInfo) => {
     fetch(`${url}/login`, {

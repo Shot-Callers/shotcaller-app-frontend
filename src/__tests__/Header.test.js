@@ -59,4 +59,13 @@ describe("<Header/>", () => {
     expect(link).toBeInTheDocument();
     expect(link.getAttribute("href")).toBe("/courtindex");
     });
+  it("Contain clickable links", () => {
+      header();
+      userEvent.click(screen.getByText("About Us"));
+      const link = screen.getByRole("link", {
+        name: "About Us",
+      });
+      expect(link).toBeInTheDocument();
+      expect(link.getAttribute("href")).toBe("/aboutus");
+    });
 });

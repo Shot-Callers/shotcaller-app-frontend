@@ -17,9 +17,9 @@ const Home = () => {
               Ball is Life!
             </span>
           </p>
-          <img className="bballimg" src={bball1}/>
-          <img className="phone1" src={phone1}/>
-          <img className="phone2" src={phone2}/>
+          <img alt="bballimg" className="bballimg" src={bball1}/>
+          <img alt="phone1" className="phone1" src={phone1}/>
+          <img alt="phone2" className="phone2" src={phone2}/>
         </div>
       </div>
     </div>

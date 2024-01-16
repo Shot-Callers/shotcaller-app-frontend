@@ -13,7 +13,7 @@ describe("<NotFound/>", () => {
   };
   it("Renders page without errors", () => {
     notFound();
-    const text = screen.getByText("404 Not Found");
+    const text = screen.getByText(/shoot again, 404 not found/i);
     expect(text).toBeInTheDocument();
   });
 });
