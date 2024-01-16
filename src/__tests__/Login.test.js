@@ -21,12 +21,14 @@ describe("<Login />", () => {
       })
     ).toBeInTheDocument();
   });
+
+  
   it("has an email, password input,and skill level select", () => {
     login();
-    expect(screen.getByText(/email: password:/i)).toBeInTheDocument();
-
-   
+    expect(screen.getByText(/email/i)).toBeInTheDocument();
+    expect(screen.getByText(/password:/i)).toBeInTheDocument();
   });
+  
   it("has a submit button", () => {
     login();
     expect(
