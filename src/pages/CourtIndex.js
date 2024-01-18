@@ -23,6 +23,8 @@ const CourtIndex = ({ basketballcourts }) => {
   const colors = ["#6BBAFF", "#FFA34A", "#FF5F5F", "#7052FF", "#19D79E"]
   const randomColors = colors[Math.floor(Math.random() * colors.length)];
 
+  
+
   return (
     <>
       <div className="courts-body">
