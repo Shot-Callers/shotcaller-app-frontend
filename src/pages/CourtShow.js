@@ -41,32 +41,32 @@ const CourtShow = ({ basketballcourts, deleteCourt, currentUser }) => {
     }
   }, [currentCourt]);
 
-
-  const geocodeAddress = (street,  city, state ) => {
+const geocodeAddress = async (street, city, state) => {
+  try {
     const address = `${street}, ${city}, ${state}`;
-    axios
-    .get(
+    const response = await axios.get(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
-    )
-    .then((response) => {
-      if (response.data.results && response.data.results.length > 0) {
-        const rooftopResults = response.data.results.filter(result => result.types.includes('premise') || result.types.includes('street_address'));
+    );
 
-        if (rooftopResults.length > 0) {
-      const location = rooftopResults[0].geometry.location;
+    const results = response.data.results;
+
+    if (results && results.length > 0) {
+      const rooftopResults = results.filter(
+        (result) =>
+          result.types.includes('premise') || result.types.includes('street_address')
+      );
+
+      const selectedLocation = rooftopResults.length > 0
+        ? rooftopResults[0]
+        : results.find((result) => result.geometry.location_type === 'APPROXIMATE');
+
+      const location = selectedLocation.geometry.location;
       setCenter({ lat: location.lat, lng: location.lng });
-      setFormattedAddress(rooftopResults[0].formatted_address);
-     } else {
-      const approximateLocation = response.data.results.filter(result => result.geometry.location_type === 'APPROXIMATE')
-      const location = approximateLocation[0].geometry.location;
-      setCenter({ lat: location.lat, lng: location.lng });
-      setFormattedAddress(approximateLocation[0].formatted_address);
-      }
+      setFormattedAddress(selectedLocation.formatted_address);
     }
-    })
-    .catch((error) => {
-      console.error('Error fetching address:', error);
-    });
+  } catch (error) {
+    console.error('Error fetching address:', error);
+  }
 };
 
 
