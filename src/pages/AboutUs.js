@@ -1,21 +1,69 @@
-import React from 'react'
+import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className='container'>
-      <h3 className='text-center my-3' style={{ color: "#41245C", fontSize: "50px" }}><b>Team Shot Callers</b></h3>
-      <h4 className='text-center'>
+    <div
+      className="container mx-auto my-5 px-4 py-5 rounded"
+      style={{ backgroundColor: "whitesmoke" }}
+    >
+      <h3
+        className="text-center my-3"
+        style={{ color: "#41245C", fontSize: "50px" }}
+      >
+        <b>Team Shot Callers</b>
+      </h3>
+      <h4 className="text-center">
         Greetings from Team Shot Callers, a vibrant group representing the Learn
         Academy Golf 2023 cohort:
       </h4>
-      <h5 className='text-center'>Meet the Team:</h5>
+      <h5 className="text-center">Meet the Team:</h5>
       <ul className="list-unstyled text-center ">
-        <li><a className="menu__link" href='https://www.linkedin.com/in/michaelreyes5/' target='_blank' style={{textDecoration: "none", color: "#F57417"}}> <b>Michael Reyes</b> </a></li>
-        <li><a className="menu__link" href='https://www.linkedin.com/in/jeffreyguzmanmodesto/' target='_blank' style={{textDecoration: "none", color: "#F57417"}}> <b>Jeffrey Guzman</b> </a></li>
-        <li><a className="menu__link" href='https://www.linkedin.com/in/eric-mckee-dev/' target='_blank' style={{textDecoration: "none", color: "#F57417"}}> <b>Eric McKee</b> </a></li>
-        <li><a className="menu__link" href='https://www.linkedin.com/in/franz-marte/' target='_blank' style={{textDecoration: "none", color: "#F57417"}}> <b>Franz Marte</b> </a></li>
+        <li>
+          <a
+            className="menu__link"
+            href="https://www.linkedin.com/in/michaelreyes5/"
+            target="_blank"
+            style={{ textDecoration: "none", color: "#F57417" }}
+          >
+            {" "}
+            <b>Michael Reyes</b>{" "}
+          </a>
+        </li>
+        <li>
+          <a
+            className="menu__link"
+            href="https://www.linkedin.com/in/jeffreyguzmanmodesto/"
+            target="_blank"
+            style={{ textDecoration: "none", color: "#F57417" }}
+          >
+            {" "}
+            <b>Jeffrey Guzman</b>{" "}
+          </a>
+        </li>
+        <li>
+          <a
+            className="menu__link"
+            href="https://www.linkedin.com/in/eric-mckee-dev/"
+            target="_blank"
+            style={{ textDecoration: "none", color: "#F57417" }}
+          >
+            {" "}
+            <b>Eric McKee</b>{" "}
+          </a>
+        </li>
+        <li>
+          <a
+            className="menu__link"
+            href="https://www.linkedin.com/in/franz-marte/"
+            target="_blank"
+            style={{ textDecoration: "none", color: "#F57417" }}
+          >
+            {" "}
+            <b>Franz Marte</b>{" "}
+          </a>
+        </li>
       </ul>
-      <p className='fs-4 mx-auto' style={{ color: "#41245C"}}>
+      <p className="fs-4 mx-auto" style={{ color: "#41245C" }}>
         Ever dreamt of effortlessly discovering nearby basketball games in
         real-time or, on the flip side, finding empty parks for some solo
         practice? Enter ShotCallers, our brainchild aiming to redefine your
@@ -51,9 +99,11 @@ const AboutUs = () => {
         redefine the game, connecting like-minded individuals who share a
         passion for basketball. Thank you for being part of our journey!
       </p>
-      <h4 className='text-center' style={{ color: "#41245C"}}><b>Team Shot Callers</b></h4>
+      <h4 className="text-center" style={{ color: "#41245C" }}>
+        <b>Team Shot Callers</b>
+      </h4>
     </div>
   );
 };
 
-export default AboutUs
+export default AboutUs;

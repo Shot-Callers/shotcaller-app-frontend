@@ -15,6 +15,9 @@ const CourtNew = ({ currentUser, createCourts }) => {
     number_players: "",
     user_id: currentUser?.id,
   });
+
+  console.log(newCourt);
+
   const handleChange = (e) => {
     setNewCourt({ ...newCourt, [e.target.name]: e.target.value });
   };
@@ -29,7 +32,9 @@ const CourtNew = ({ currentUser, createCourts }) => {
       </h3>
       <Form className="w-50 m-auto p-3 shadow-lg rounded pt-1 pb-3">
         <FormGroup>
-          <Label for="name"><b>Name</b></Label>
+          <Label for="name">
+            <b>Name</b>
+          </Label>
           <Input
             name="name"
             placeholder="Name"
@@ -38,34 +43,45 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="address"><b>Street</b></Label>
+          <Label for="address">
+            <b>Street</b>
+          </Label>
           <Input
             name="address"
-            placeholder="Street"
+            placeholder="Street is required"
             type="text"
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <FormGroup>
-          <Label for="city"><b>City</b></Label>
+          <Label for="city">
+            <b>City</b>
+          </Label>
           <Input
             name="city"
-            placeholder="City"
+            placeholder="City is required"
             type="text"
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <FormGroup>
-          <Label for="state"><b>State</b></Label>
+          <Label for="state">
+            <b>State</b>
+          </Label>
           <Input
             name="state"
-            placeholder="State"
+            placeholder="State is required"
             type="text"
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <FormGroup>
-          <Label for="zip"><b>Zip Code</b></Label>
+          <Label for="zip">
+            <b>Zip Code</b>
+          </Label>
           <Input
             name="zip"
             placeholder="zip"
@@ -74,8 +90,14 @@ const CourtNew = ({ currentUser, createCourts }) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label><b>Court Type</b></Label>
-          <select name="court_type" onChange={handleChange} className="form-control text-center">
+          <Label>
+            <b>Court Type</b>
+          </Label>
+          <select
+            name="court_type"
+            onChange={handleChange}
+            className="form-control text-center"
+          >
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
@@ -83,8 +105,14 @@ const CourtNew = ({ currentUser, createCourts }) => {
           </select>
         </FormGroup>
         <FormGroup>
-          <Label><b>Number of Players</b></Label>
-          <select name="number_players" onChange={handleChange} className="form-control text-center">
+          <Label>
+            <b>Number of Players</b>
+          </Label>
+          <select
+            name="number_players"
+            onChange={handleChange}
+            className="form-control text-center"
+          >
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>
@@ -93,7 +121,11 @@ const CourtNew = ({ currentUser, createCourts }) => {
             ))}
           </select>
         </FormGroup>
-        <Button onClick={handleSubmit} className="w-100" style={{ color:"white", backgroundColor:"#EBA059" }}>
+        <Button
+          onClick={handleSubmit}
+          className="w-100"
+          style={{ color: "white", backgroundColor: "#EBA059" }}
+        >
           Submit
         </Button>
       </Form>
