@@ -27,8 +27,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
     handleEditCourt(editCourt, currentCourt?.id);
     navigate("/courtindex");
   };
-    
- 
+
   return (
     <div>
       <h3 className="text-center" style={{ textShadow: "0 5px 5px grey" }}>
@@ -80,7 +79,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
             onChange={handleChange}
           />
         </FormGroup>
-        <FormGroup>
+        {/* <FormGroup>
           <Label name="court type">Court Type</Label>
           <select onChange={handleChange} className="form-control text-center">
             <option value="">-Choose Court Type-</option>
@@ -99,8 +98,12 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
               </option>
             ))}
           </select>
-        </FormGroup>
-        <Button onClick={handleSubmit} className="w-100" style={{ color:"white", backgroundColor:"#EBA059" }}>
+        </FormGroup> */}
+        <Button
+          onClick={handleSubmit}
+          className="w-100"
+          style={{ color: "white", backgroundColor: "#EBA059" }}
+        >
           Submit
         </Button>
       </Form>

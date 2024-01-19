@@ -18,11 +18,41 @@ import {
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 
+// Images
+import player3 from "./assests/Player3.png";
+import player5 from "./assests/Player5.png";
+import player6 from "./assests/Player6.png";
+import player7 from "./assests/Player7.png";
+import player4 from "./assests/Player4.png";
+import player10 from "./assests/Player10.png";
+import player11 from "./assests/Player11.png";
+import player12 from "./assests/Player12.png";
+import player13 from "./assests/Player13.png";
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [basketballcourts, setBasketBallCourts] = useState([]);
-  // const url = "https://shotcaller-backend.onrender.com";
 
+  const players = [
+    player3,
+    player4,
+    player5,
+    player6,
+    player7,
+    player10,
+    player11,
+    player12,
+    player13,
+  ];
+
+  const randomPlayers = () =>
+    players[Math.floor(Math.random() * players.length)];
+
+  const colors = ["#6BBAFF", "#FFA34A", "#FF5F5F", "#7052FF", "#19D79E"];
+  const randomColors = () => colors[Math.floor(Math.random() * colors.length)];
+
+  // URLs
+  // const url = "https://shotcaller-backend.onrender.com";
   const url = "http://localhost:3000";
 
   const login = (userInfo) => {
@@ -147,7 +177,13 @@ function App() {
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route
           path="/courtindex"
-          element={<CourtIndex basketballcourts={basketballcourts}/>}
+          element={
+            <CourtIndex
+              basketballcourts={basketballcourts}
+              randomColors={randomColors}
+              randomPlayers={randomPlayers}
+            />
+          }
         />
         {currentUser && (
           <Route
@@ -156,14 +192,23 @@ function App() {
               <CourtProtectedIndex
                 currentUser={currentUser}
                 basketballcourts={basketballcourts}
+                randomColors={randomColors}
+                randomPlayers={randomPlayers}
               />
             }
           />
         )}
         <Route
           path="/courtshow/:id"
-
-          element={<CourtShow basketballcourts={basketballcourts} deleteCourt={deleteCourt} currentUser={currentUser}/>}
+          element={
+            <CourtShow
+              basketballcourts={basketballcourts}
+              deleteCourt={deleteCourt}
+              currentUser={currentUser}
+              randomColors={randomColors}
+              randomPlayers={randomPlayers}
+            />
+          }
         />
         <Route
           path="/courtnew"

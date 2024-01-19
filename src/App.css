@@ -50,7 +50,6 @@
   border-radius: 20px;
 }
 
-
 .intro .find-a-basketball {
   color: transparent;
   font-family: "Poppins-SemiBold", Helvetica;
@@ -65,7 +64,7 @@
 }
 
 .intro .text-wrapper {
-  color:#eba059 ;
+  color: #eba059;
 }
 
 .intro .span {
@@ -73,7 +72,6 @@
   position: relative;
   z-index: 1;
 }
-
 
 .intro .shot-caller-app {
   color: #eba059;
@@ -91,8 +89,8 @@
 }
 
 .footer {
-  background-color: #8B3C76;
-  color: #EBA059;
+  background-color: #8b3c76;
+  color: #eba059;
 }
 
 header a {
@@ -102,15 +100,16 @@ header a {
   border: none;
   background: none;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 header a:before {
   margin-left: auto;
 }
 
-header a:after, header a:before {
-  content: '';
+header a:after,
+header a:before {
+  content: "";
   width: 0%;
   height: 2px;
   background: white;
@@ -118,7 +117,8 @@ header a:after, header a:before {
   transition: 0.5s;
 }
 
-header a:hover::after, header a:hover::before {
+header a:hover::after,
+header a:hover::before {
   width: 100%;
 }
 
@@ -126,29 +126,47 @@ header {
   position: relative;
   z-index: 1;
 }
- body {
-  overflow: hidden;
- }
+body {
+  overflow: scroll;
+}
 
- .menu__link {
-  color: #F57417;
+.menu__link {
+  color: #f57417;
   line-height: 2;
   position: relative;
 }
 
 .menu__link::before {
-  content: '';
+  content: "";
   width: 0;
   height: 2px;
   border-radius: 2px;
-  background-color: #F57417;
+  background-color: #f57417;
   position: absolute;
-  bottom: -.25rem;
+  bottom: -0.25rem;
   left: 50%;
-  transition: width .4s, left .4s;
+  transition: width 0.4s, left 0.4s;
 }
 
 .menu__link:hover::before {
   width: 100%;
   left: 0;
+}
+
+.btn,
+#show-card {
+  transition: 0.2s linear;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+#show-card:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+#hamburger {
+  cursor: pointer;
 }
