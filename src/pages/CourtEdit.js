@@ -79,9 +79,9 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
             onChange={handleChange}
           />
         </FormGroup>
-        {/* <FormGroup>
+        <FormGroup>
           <Label name="court type">Court Type</Label>
-          <select onChange={handleChange} className="form-control text-center">
+          <select name="court_type" onChange={handleChange} className="form-control text-center">
             <option value="">-Choose Court Type-</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
@@ -90,7 +90,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
         </FormGroup>
         <FormGroup>
           <Label name="number of players">Number of Players</Label>
-          <select onChange={handleChange} className="form-control text-center">
+          <select name="number_players" onChange={handleChange} className="form-control text-center">
             <option value="">-Choose players-</option>
             {Array.from({ length: 20 }, (_, i) => (
               <option key={i} value={i}>
@@ -98,7 +98,7 @@ const CourtEdit = ({ basketballcourts, handleEditCourt, currentUser }) => {
               </option>
             ))}
           </select>
-        </FormGroup> */}
+        </FormGroup>
         <Button
           onClick={handleSubmit}
           className="w-100"

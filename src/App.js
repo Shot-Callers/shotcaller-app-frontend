@@ -52,8 +52,8 @@ function App() {
   const randomColors = () => colors[Math.floor(Math.random() * colors.length)];
 
   // URLs
-  // const url = "https://shotcaller-backend.onrender.com";
-  const url = "http://localhost:3000";
+  const url = "https://shotcaller-backend.onrender.com";
+  // const url = "http://localhost:3000";
 
   const login = (userInfo) => {
     fetch(`${url}/login`, {
